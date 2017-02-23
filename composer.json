@@ -1,18 +1,25 @@
 {
     "name": "webboy/modeltraits",
     "description": "Useful traits for Laravel 5.x models by Nemanja Milenkovic",
-    "version" : "1.0.1",
+    "version" : "1.0.2",
     "keywords": ["models", "traits", "laravel"],
     "license": "MIT",
     "authors": [
         {
             "name": "Nemanja Milenkovic",
-            "email": "extramedia.nemanja@gmail.com"
+            "email": "extramedia.nemanja@gmail.com",
+            "homepage": "https://www.linkedin.com/in/nemanja-milenkovic-1477083b",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "laravel/framework": ">=5.1"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "Webboy\\Modeltraits\\": "src"
+        }
+    }    
 }
