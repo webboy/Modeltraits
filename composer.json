@@ -1,0 +1,14 @@
+{
+    "name": "webboy/modeltraits",
+    "description": "Useful traits for Laravel 5.x models",
+    "keywords": ["models", "traits", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "webboy",
+            "email": "extramedia.nemanja@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
