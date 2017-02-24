@@ -1,30 +1,46 @@
 <?php  
 namespace Webboy\Modeltraits;
 
-use File;
-
 trait StorageModelTrait
 {
-	public function getFilePath($owner = null, $identifier='id',$filename='filename')
-	{
-		if (!isset($this->$identifier) || !isset($this->$filename))
+	public function getFilePath($owner = null,$path_attributes = null)
+	{		
+		$path_attributes = !empty($path_attributes) ? $path_attributes : $this->path_attributes;
+
+		if (empty($path_attributes))
 		{
-			return false;
+			return null;
 		}
+
+		$values = array();
 
 		if (!empty($owner))
 		{
-			$path = storage_path($owner->getTable().DIRECTORY_SEPARATOR.$owner->$identifier.DIRECTORY_SEPARATOR.$this->table.DIRECTORY_SEPARATOR.$this->$filename);
-		} else {
-			$path = storage_path($this->table.DIRECTORY_SEPARATOR.$this->$identifier.DIRECTORY_SEPARATOR.$this->$filename);
+			$values[] = $owner->getTable();			
 		}
-		
-		
-		if(!File::exists($path))
+
+		foreach ($this->path_attributes as $key=>$val)
 		{
-			return false;
-		}			
+			$values[] = $this->$val;
+		}
+
+		if (empty($values))
+		{
+			return null;
+		}
+
+		$path = '';
+
+		foreach ($values as $key=>$value)
+		{
+			$path .= $value;
+
+			if ($key != count($values)-1)
+			{
+				$path .= DIRECTORY_SEPARATOR;
+			}
+		}
+					
 		return $path;		
 	}
 }
-?>
