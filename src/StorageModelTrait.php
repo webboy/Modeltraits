@@ -16,7 +16,8 @@ trait StorageModelTrait
 
 		if (!empty($owner))
 		{
-			$values[] = $owner->getTable();			
+			$values[] = $owner->getTable();
+			$values[] = $owner->getKey();
 		}
 
 		foreach ($this->path_attributes as $key=>$val)
@@ -40,7 +41,7 @@ trait StorageModelTrait
 				$path .= DIRECTORY_SEPARATOR;
 			}
 		}
-					
+
 		return $path;		
 	}
 }
