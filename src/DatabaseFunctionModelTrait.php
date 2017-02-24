@@ -12,4 +12,3 @@ trait DatabaseFunctionModelTrait
 		return $columns;
 	}
 }
-?>

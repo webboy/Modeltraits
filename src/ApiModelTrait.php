@@ -1,7 +1,6 @@
 <?php  
 namespace Webboy\Modeltraits;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 trait ApiModelTrait
@@ -44,8 +43,7 @@ trait ApiModelTrait
 	}
 
 	public static function setColumns()
-    {
-    	
+    {   	
         
         if (!empty(Input::get('only')))
         {
