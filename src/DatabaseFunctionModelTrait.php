@@ -11,4 +11,19 @@ trait DatabaseFunctionModelTrait
 
 		return $columns;
 	}
+
+	public function scopeAddFunctionColumns($query,$columns = ['*'])
+	{
+		if (!empty(self::$db_function_columns) && is_array(self::$db_function_columns))
+		{
+			foreach (self::$db_function_columns as $column)
+			{
+				array_push($columns,$column);
+			}
+		}
+		
+		$query->select($columns);
+
+		return $query;
+	}
 }
