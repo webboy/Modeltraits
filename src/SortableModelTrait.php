@@ -12,7 +12,7 @@ trait SortableModelTrait
         if(empty($order_by)) $order_by = $this->default_order_by;
         if(empty($order_type)) $order_type = $this->default_order_type;
 
-        return $query->orderBy($order_by,$order_type);
+        return $query->orderBy($this->table.'.'.$order_by,$order_type);
 
     }
 }
