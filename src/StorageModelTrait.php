@@ -1,6 +1,8 @@
 <?php  
 namespace Webboy\Modeltraits;
 
+use Illuminate\Database\Eloquent\Model;
+
 trait StorageModelTrait
 {
 	public function getFilePath($owner = null,$path_attributes = null)

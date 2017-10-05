@@ -1,6 +1,8 @@
 <?php  
 namespace Webboy\Modeltraits;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait DatabaseFunctionModelTrait
 {
 	protected static $db_function_columns = array();
@@ -12,7 +14,7 @@ trait DatabaseFunctionModelTrait
 		return $columns;
 	}
 
-	public function scopeAddFunctionColumns($query,$columns = ['*'])
+	public function scopeAddFunctionColumns(Builder $query,$columns = ['*'])
 	{
 		if (!empty(self::$db_function_columns) && is_array(self::$db_function_columns))
 		{

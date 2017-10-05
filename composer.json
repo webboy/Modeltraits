@@ -1,7 +1,7 @@
 {
     "name": "webboy/modeltraits",
     "description": "Useful traits for Laravel 5.x models by Nemanja Milenkovic",
-    "version" : "1.2",
+    "version" : "1.2.1",
     "keywords": ["models", "traits", "laravel","webboy"],
     "license": "MIT",
     "authors": [
