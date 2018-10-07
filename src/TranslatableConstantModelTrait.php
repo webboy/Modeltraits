@@ -19,6 +19,19 @@ trait TranslatableConstantModelTrait
 		}
 
 		return self::$data;
-	}	
+	}
+
+	public static function selectData()
+    {
+        $data = self::loadData();
+        $output = [];
+
+        foreach ($data as $key => $val)
+        {
+            $output[$key] = $val['name'];
+        }
+
+        return $output;
+    }
 }
 ?>
