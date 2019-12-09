@@ -1,7 +1,7 @@
 <?php  
 namespace Webboy\Modeltraits;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 trait ApiModelTrait
 {
@@ -45,23 +45,23 @@ trait ApiModelTrait
 	public static function setColumns()
     {   	
         
-        if (!empty(Input::get('only')))
+        if (!empty(Request::get('only')))
         {
-            self::$api_attributes = array_merge(['id'],explode(',',Input::get('only')));
+            self::$api_attributes = array_merge(['id'],explode(',',Request::get('only')));
 
-        } elseif (!empty(Input::get('columns')))
+        } elseif (!empty(Request::get('columns')))
         {
-            self::$api_attributes = array_merge(self::$default_api_attributes,explode(',',Input::get('columns')));
+            self::$api_attributes = array_merge(self::$default_api_attributes,explode(',',Request::get('columns')));
         }
 
-        if (!empty(Input::get('except')))
+        if (!empty(Request::get('except')))
         {
             if (count(self::$api_attributes)==0)
             {
                 self::$api_attributes = self::$default_api_attributes;
             }
             
-            self::$api_attributes = array_diff(self::$api_attributes,explode(',',Input::get('except')));
+            self::$api_attributes = array_diff(self::$api_attributes,explode(',',Request::get('except')));
         }
         
     }
