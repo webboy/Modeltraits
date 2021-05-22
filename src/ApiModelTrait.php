@@ -24,7 +24,7 @@ trait ApiModelTrait
 		{
 			if (in_array($attribute,self::$allowed_api_attributes))				
 			{
-				$method = Str::of('get_'.$attribute.'_api_attribute')->camel();
+				$method = (string)Str::of('get_'.$attribute.'_api_attribute')->camel();
 				if (method_exists($this,$method))
 				{
 					$output[$attribute] = $this->$method();
