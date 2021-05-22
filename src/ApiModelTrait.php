@@ -2,6 +2,7 @@
 namespace Webboy\Modeltraits;
 
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 trait ApiModelTrait
 {
@@ -23,7 +24,7 @@ trait ApiModelTrait
 		{
 			if (in_array($attribute,self::$allowed_api_attributes))				
 			{
-				$method = camel_case('get_'.$attribute.'_api_attribute');
+				$method = Str::of('get_'.$attribute.'_api_attribute')->camel();
 				if (method_exists($this,$method))
 				{
 					$output[$attribute] = $this->$method();
